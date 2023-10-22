@@ -1,0 +1,330 @@
+shaped-recipes:
+  # Stone items from andesite
+
+  stone-pickaxe-andesite:
+    result:
+      vanilla: true
+      item: STONE_PICKAXE
+      amount: 1
+    shape:
+      shape-patterns:
+        - [ "aaa",
+            " b ",
+            " b " ]
+      keys:
+        a:
+          vanilla: true
+          item: ANDESITE
+        b:
+          vanilla: true
+          item: STICK
+
+  stone-axe-andesite:
+    result:
+      vanilla: true
+      item: STONE_AXE
+      amount: 1
+    shape:
+      shape-patterns:
+        - ["aa ",
+           "ab ",
+           " b "]
+        - [ " aa",
+            " ba",
+            " b " ]
+      keys:
+        a:
+          vanilla: true
+          item: ANDESITE
+        b:
+          vanilla: true
+          item: STICK
+
+  stone-shovel-andesite:
+    result:
+      vanilla: true
+      item: STONE_SHOVEL
+      amount: 1
+    shape:
+      shape-patterns:
+        - [" a ",
+           " b ",
+           " b "]
+        - ["  a",
+           "  b",
+           "  b"]
+        - ["a  ",
+           "b  ",
+           "b  "]
+      keys:
+        a:
+          vanilla: true
+          item: ANDESITE
+        b:
+          vanilla: true
+          item: STICK
+
+  stone-hoe-andesite:
+    result:
+      vanilla: true
+      item: STONE_HOE
+      amount: 1
+    shape:
+      shape-patterns:
+        - ["aa ",
+           " b ",
+           " b "]
+        - [" aa",
+           " b ",
+           " b "]
+      keys:
+        a:
+          vanilla: true
+          item: ANDESITE
+        b:
+          vanilla: true
+          item: STICK
+
+  stone-sword-andesite:
+    result:
+      vanilla: true
+      item: STONE_SWORD
+      amount: 1
+    shape:
+      shape-patterns:
+        - [" a ",
+           " a ",
+           " b "]
+        - ["  a",
+           "  a",
+           "  b"]
+        - ["a  ",
+           "a  ",
+           "b  "]
+      keys:
+        a:
+          vanilla: true
+          item: ANDESITE
+        b:
+          vanilla: true
+          item: STICK
+
+  # Stone items from diorite
+
+  stone-pickaxe-diorite:
+    result:
+      vanilla: true
+      item: STONE_PICKAXE
+      amount: 1
+    shape:
+      shape-patterns:
+        - [ "aaa",
+            " b ",
+            " b " ]
+      keys:
+        a:
+          vanilla: true
+          item: DIORITE
+        b:
+          vanilla: true
+          item: STICK
+
+  stone-axe-diorite:
+    result:
+      vanilla: true
+      item: STONE_AXE
+      amount: 1
+    shape:
+      shape-patterns:
+        - ["aa ",
+           "ab ",
+           " b "]
+        - [ " aa",
+            " ba",
+            " b " ]
+      keys:
+        a:
+          vanilla: true
+          item: DIORITE
+        b:
+          vanilla: true
+          item: STICK
+
+  stone-shovel-diorite:
+    result:
+      vanilla: true
+      item: STONE_SHOVEL
+      amount: 1
+    shape:
+      shape-patterns:
+        - [" a ",
+           " b ",
+           " b "]
+        - ["  a",
+           "  b",
+           "  b"]
+        - ["a  ",
+           "b  ",
+           "b  "]
+      keys:
+        a:
+          vanilla: true
+          item: DIORITE
+        b:
+          vanilla: true
+          item: STICK
+
+  stone-hoe-diorite:
+    result:
+      vanilla: true
+      item: STONE_HOE
+      amount: 1
+    shape:
+      shape-patterns:
+        - ["aa ",
+           " b ",
+           " b "]
+        - [" aa",
+           " b ",
+           " b "]
+      keys:
+        a:
+          vanilla: true
+          item: DIORITE
+        b:
+          vanilla: true
+          item: STICK
+
+  stone-sword-diorite:
+    result:
+      vanilla: true
+      item: STONE_SWORD
+      amount: 1
+    shape:
+      shape-patterns:
+        - [" a ",
+           " a ",
+           " b "]
+        - ["  a",
+           "  a",
+           "  b"]
+        - ["a  ",
+           "a  ",
+           "b  "]
+      keys:
+        a:
+          vanilla: true
+          item: DIORITE
+        b:
+          vanilla: true
+          item: STICK
+
+  # Stone items from granite
+
+  stone-pickaxe-granite:
+    result:
+      vanilla: true
+      item: STONE_PICKAXE
+      amount: 1
+    shape:
+      shape-patterns:
+        - [ "aaa",
+            " b ",
+            " b " ]
+      keys:
+        a:
+          vanilla: true
+          item: GRANITE
+        b:
+          vanilla: true
+          item: STICK
+
+  stone-axe-granite:
+    result:
+      vanilla: true
+      item: STONE_AXE
+      amount: 1
+    shape:
+      shape-patterns:
+        - ["aa ",
+           "ab ",
+           " b "]
+        - [ " aa",
+            " ba",
+            " b " ]
+      keys:
+        a:
+          vanilla: true
+          item: GRANITE
+        b:
+          vanilla: true
+          item: STICK
+
+  stone-shovel-granite:
+    result:
+      vanilla: true
+      item: STONE_SHOVEL
+      amount: 1
+    shape:
+      shape-patterns:
+        - [" a ",
+           " b ",
+           " b "]
+        - ["  a",
+           "  b",
+           "  b"]
+        - ["a  ",
+           "b  ",
+           "b  "]
+      keys:
+        a:
+          vanilla: true
+          item: GRANITE
+        b:
+          vanilla: true
+          item: STICK
+
+  stone-hoe-granite:
+    result:
+      vanilla: true
+      item: STONE_HOE
+      amount: 1
+    shape:
+      shape-patterns:
+        - ["aa ",
+           " b ",
+           " b "]
+        - [" aa",
+           " b ",
+           " b "]
+      keys:
+        a:
+          vanilla: true
+          item: GRANITE
+        b:
+          vanilla: true
+          item: STICK
+
+  stone-sword-granite:
+    result:
+      vanilla: true
+      item: STONE_SWORD
+      amount: 1
+    shape:
+      shape-patterns:
+        - [" a ",
+           " a ",
+           " b "]
+        - ["  a",
+           "  a",
+           "  b"]
+        - ["a  ",
+           "a  ",
+           "b  "]
+      keys:
+        a:
+          vanilla: true
+          item: GRANITE
+        b:
+          vanilla: true
+          item: STICK
