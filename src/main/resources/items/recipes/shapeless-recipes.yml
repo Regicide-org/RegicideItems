@@ -1,1 +1,19 @@
 shapeless-recipes:
+  #test
+  stone-stick:
+    result:
+      vanilla: true
+      item: STICK
+      amount: 4
+    key:
+      vanilla: true
+      item: STONE
+
+  stick-paper:
+    result:
+      vanilla: true
+      item: PAPER
+      amount: 5
+    key:
+      vanilla: true
+      item: STICK

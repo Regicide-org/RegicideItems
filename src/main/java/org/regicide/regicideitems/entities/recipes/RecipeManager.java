@@ -7,8 +7,10 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.ShapelessRecipe;
 import org.jetbrains.annotations.NotNull;
 import org.regicide.regicideitems.RegicideItems;
 
@@ -71,7 +73,24 @@ public final class RecipeManager {
     public static void readShapelessRecipes() {
         FileConfiguration shapelessRecipesConfig =
                 getRecipesConfiguration("items" + File.separator + "recipes" + File.separator + "shapeless-recipes.yml");
-        // TODO. Надо расписать логику реализации чтения shapelessRecipes
+        ConfigurationSection shapelessRecipe = shapelessRecipesConfig.getConfigurationSection("shapeless-recipes");
+
+        Set<String> recipesLess = shapelessRecipe.getKeys(false);
+        for (String recipeLess : recipesLess) {
+
+            // Fields of recipeLess
+            String materialLessName = shapelessRecipe.getString(recipeLess+".result.item");
+            int amountOutLess = shapelessRecipe.getInt(recipeLess+".result.amount");
+            String keyLess = shapelessRecipe.getString(recipeLess+".key.item");
+            ItemStack resultItemLess = new ItemStack(Material.getMaterial(materialLessName), amountOutLess);
+
+            ShapelessRecipe craftRecipeLess = new ShapelessRecipe(new NamespacedKey(RegicideItems.getInstance(),
+                    recipeLess),resultItemLess);
+
+            craftRecipeLess.addIngredient(Material.getMaterial(keyLess));
+
+            Bukkit.addRecipe(craftRecipeLess);
+        }
     }
 
     /**
