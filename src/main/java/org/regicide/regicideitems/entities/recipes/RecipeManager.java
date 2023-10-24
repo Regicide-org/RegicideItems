@@ -81,13 +81,15 @@ public final class RecipeManager {
             // Fields of recipeLess
             String materialLessName = shapelessRecipe.getString(recipeLess+".result.item");
             int amountOutLess = shapelessRecipe.getInt(recipeLess+".result.amount");
+            int amountPutLess = shapelessRecipe.getInt(recipeLess+".key.amount");
             String keyLess = shapelessRecipe.getString(recipeLess+".key.item");
             ItemStack resultItemLess = new ItemStack(Material.getMaterial(materialLessName), amountOutLess);
+
 
             ShapelessRecipe craftRecipeLess = new ShapelessRecipe(new NamespacedKey(RegicideItems.getInstance(),
                     recipeLess),resultItemLess);
 
-            craftRecipeLess.addIngredient(Material.getMaterial(keyLess));
+            craftRecipeLess.addIngredient(amountPutLess,Material.getMaterial(keyLess));
 
             Bukkit.addRecipe(craftRecipeLess);
         }

@@ -8,6 +8,7 @@ shapeless-recipes:
     key:
       vanilla: true
       item: STONE
+      amount: 6
 
   stick-paper:
     result:
@@ -17,3 +18,4 @@ shapeless-recipes:
     key:
       vanilla: true
       item: STICK
+      amount: 3
