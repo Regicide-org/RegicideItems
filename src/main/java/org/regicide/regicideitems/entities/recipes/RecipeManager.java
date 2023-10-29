@@ -4,18 +4,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.ShapelessRecipe;
-import org.jetbrains.annotations.NotNull;
 import org.regicide.regicideitems.RegicideItems;
-
+import org.regicide.regicideitems.config.ConfigManager;
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
@@ -29,7 +24,7 @@ public final class RecipeManager {
     @SuppressWarnings({"ConstantConditions", "unchecked"})
     public static void readShapedRecipes() {
         FileConfiguration shapedRecipesConfig =
-                getRecipesConfiguration("items" + File.separator + "recipes" + File.separator + "shaped-recipes.yml");
+                ConfigManager.getConfigFromFile("items" + File.separator + "recipes" + File.separator + "shaped-recipes.yml");
         ConfigurationSection shapedRecipes = shapedRecipesConfig.getConfigurationSection("shaped-recipes");
 
         Set<String> recipes = shapedRecipes.getKeys(false);
@@ -72,7 +67,7 @@ public final class RecipeManager {
      */
     public static void readShapelessRecipes() {
         FileConfiguration shapelessRecipesConfig =
-                getRecipesConfiguration("items" + File.separator + "recipes" + File.separator + "shapeless-recipes.yml");
+                ConfigManager.getConfigFromFile("items" + File.separator + "recipes" + File.separator + "shapeless-recipes.yml");
         ConfigurationSection shapelessRecipe = shapelessRecipesConfig.getConfigurationSection("shapeless-recipes");
 
         Set<String> recipesLess = shapelessRecipe.getKeys(false);
@@ -94,26 +89,4 @@ public final class RecipeManager {
             Bukkit.addRecipe(craftRecipeLess);
         }
     }
-
-    /**
-     * @param path The path to craft recipes.
-     * @return The file configuration.
-     */
-    @SuppressWarnings("all")
-    private static FileConfiguration getRecipesConfiguration(@NotNull final String path) {
-        File customConfigFile = new File(RegicideItems.getInstance().getDataFolder(), path);
-        if (!customConfigFile.exists()) {
-            customConfigFile.getParentFile().mkdirs();
-            RegicideItems.getInstance().saveResource(path, false);
-        }
-
-        FileConfiguration recipesConfig = new YamlConfiguration();
-        try {
-            recipesConfig.load(customConfigFile);
-        } catch (IOException | InvalidConfigurationException e) {
-            RegicideItems.getInstance().getLogger().severe(e.getMessage());
-        }
-        return recipesConfig;
-    }
-
 }
