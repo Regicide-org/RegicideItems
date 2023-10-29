@@ -1,0 +1,7 @@
+custom-items:
+
+  wooden-spear:
+    type: Trident
+    name: 'Wooden'
+    id: ''
+    meta:
