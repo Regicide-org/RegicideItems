@@ -50,6 +50,7 @@ public final class CustomItemManager implements Listener {
             CUSTOM_ITEM_MAP.put(item,newitem);
             event.getPlayer().getInventory().setItem(i,newitem);
             i++;
+
         }
     }
 }
