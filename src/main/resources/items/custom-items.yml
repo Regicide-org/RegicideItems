@@ -1,7 +1,11 @@
 custom-items:
 
   wooden-spear:
-    type: Trident
+    type: TRIDENT
     name: 'Wooden'
-    id: ''
-    meta:
+    lore:
+      - 'Да'
+      - 'Это я!'
+  wooden-col:
+    type: STICK
+    name: 'Wooden1'
