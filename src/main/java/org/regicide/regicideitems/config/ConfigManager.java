@@ -15,17 +15,17 @@ public class ConfigManager {
      * @return The file configuration.
      */
     public static FileConfiguration getConfigFromFile(@NotNull final String path) {
-        File customConfigFile = new File(RegicideItems.getInstance().getDataFolder(), path);
+        File customConfigFile = new File(RegicideItems.instance().getDataFolder(), path);
         if (!customConfigFile.exists()) {
             customConfigFile.getParentFile().mkdirs();
-            RegicideItems.getInstance().saveResource(path, false);
+            RegicideItems.instance().saveResource(path, false);
         }
 
         FileConfiguration recipesConfig = new YamlConfiguration();
         try {
             recipesConfig.load(customConfigFile);
         } catch (IOException | InvalidConfigurationException e) {
-            RegicideItems.getInstance().getLogger().severe(e.getMessage());
+            RegicideItems.instance().getLogger().severe(e.getMessage());
         }
         return recipesConfig;
     }

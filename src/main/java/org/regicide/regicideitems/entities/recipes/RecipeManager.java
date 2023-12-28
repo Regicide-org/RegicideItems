@@ -44,7 +44,7 @@ public final class RecipeManager {
                 String s2 = shape.get(1);
                 String s3 = shape.get(2);
 
-                ShapedRecipe craftRecipe = new ShapedRecipe(new NamespacedKey(RegicideItems.getInstance(),
+                ShapedRecipe craftRecipe = new ShapedRecipe(new NamespacedKey(RegicideItems.instance(),
                         recipe + i), resultItem);
                 i++;
                 craftRecipe.shape(s1, s2, s3);
@@ -81,7 +81,7 @@ public final class RecipeManager {
             ItemStack resultItemLess = new ItemStack(Material.getMaterial(materialLessName), amountOutLess);
 
 
-            ShapelessRecipe craftRecipeLess = new ShapelessRecipe(new NamespacedKey(RegicideItems.getInstance(),
+            ShapelessRecipe craftRecipeLess = new ShapelessRecipe(new NamespacedKey(RegicideItems.instance(),
                     recipeLess),resultItemLess);
 
             craftRecipeLess.addIngredient(amountPutLess,Material.getMaterial(keyLess));

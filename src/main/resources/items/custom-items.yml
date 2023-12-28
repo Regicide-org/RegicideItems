@@ -2,10 +2,21 @@ custom-items:
 
   wooden-spear:
     type: TRIDENT
-    name: 'Wooden'
-    lore:
-      - 'Да'
-      - 'Это я!'
+    meta:
+      name: 'Wooden'
+      lore:
+        - 'Да'
+        - 'Это я!'
+      persistent-data:
+        data-key: 'WW'
+        data-type: 'Int'
+        data-value: 1
   wooden-col:
     type: STICK
-    name: 'Wooden1'
+    meta:
+      name: 'Wooden'
+      lore: 'Мама с папой в шоке,ведь я уроки,делала всегда исправно - на пятёрки! '
+      persistent-data:
+        data-key: 'Qw'
+        data-type: 'String'
+        data-value: 'Аааа'
