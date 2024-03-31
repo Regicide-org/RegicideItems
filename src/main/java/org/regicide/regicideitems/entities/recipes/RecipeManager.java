@@ -10,14 +10,61 @@ import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.ShapelessRecipe;
 import org.regicide.regicideitems.RegicideItems;
 import org.regicide.regicideitems.config.ConfigManager;
+import org.regicide.regicideitems.entities.items.CustomItemManager;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.util.List;
 import java.util.Set;
+
+import static javax.sql.rowset.spi.SyncFactory.getLogger;
 
 /**
  * This class responsible for loading custom recipes.
  */
 public final class RecipeManager {
+    public static void readShapedRecipesToCustom() {
+        FileConfiguration config = ConfigManager.getConfigFromFile("items" + File.separator + "recipes" + File.separator + "shaped-recipe-custom.yml");
+        if (config == null) {
+            RegicideItems.instance().getLogger().warning("Cannot load shaped recipes from config.");
+            return;
+        }
+
+        ConfigurationSection recipesSection = config.getConfigurationSection("shaped-recipe-custom");
+        if (recipesSection == null) {
+            RegicideItems.instance().getLogger().warning("No shaped recipes found in config.");
+            return;
+        }
+
+        Set<String> recipeKeys = recipesSection.getKeys(false);
+        for (String recipeKey : recipeKeys) {
+            ConfigurationSection recipeSection = recipesSection.getConfigurationSection(recipeKey);
+
+            ConfigurationSection resultSection = recipeSection.getConfigurationSection("result");
+            String resultItemName = resultSection.getString("item");
+            int resultAmount = resultSection.getInt("amount");
+            ItemStack resultItem;
+
+            resultItem = CustomItemManager.getCustomItem(resultItemName);
+            ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(RegicideItems.instance(), recipeKey), resultItem);
+
+            List<String> shapePatterns = recipeSection.getStringList("shape.shape-patterns");
+            shapedRecipe.shape(shapePatterns.toArray(new String[0]));
+
+            ConfigurationSection keysSection = recipeSection.getConfigurationSection("keys");
+            Set<String> keyNames = keysSection.getKeys(false);
+            for (String keyName : keyNames) {
+                char keyChar = keyName.charAt(0);
+                Material keyMaterial = Material.getMaterial(keysSection.getString(keyName + ".item"));
+                shapedRecipe.setIngredient(keyChar, keyMaterial);
+            }
+
+            Bukkit.addRecipe(shapedRecipe);
+        }
+    }
+
     /**
      * Loads shaped recipes from plugin data folder ./shaped-recipes.yml.
      */
@@ -30,7 +77,7 @@ public final class RecipeManager {
         Set<String> recipes = shapedRecipes.getKeys(false);
         for (String recipe : recipes) {
 
-            // Fields of recipe
+            // Fields of recip
             String materialName = shapedRecipes.getString(recipe + ".result.item");
             int amount = shapedRecipes.getInt(recipe + ".result.amount");
             List<List<String>> shapes = (List<List<String>>) shapedRecipes.get(recipe + ".shape.shape-patterns");
@@ -48,7 +95,6 @@ public final class RecipeManager {
                         recipe + i), resultItem);
                 i++;
                 craftRecipe.shape(s1, s2, s3);
-
                 ConfigurationSection cSectionKeys = shapedRecipes.getConfigurationSection(recipe + ".shape.keys");
                 assert cSectionKeys != null;
                 Set<String> keys = cSectionKeys.getKeys(false);

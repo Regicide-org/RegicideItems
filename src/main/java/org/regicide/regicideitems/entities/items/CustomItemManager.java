@@ -72,7 +72,12 @@ public final class CustomItemManager{
 
         }
     }
-
+    public static boolean hasCustomItem(String itemID) {
+        return CUSTOM_ITEM_MAP.containsKey(itemID);
+    }
+    public static ItemStack getCustomItem(String itemID) {
+        return CUSTOM_ITEM_MAP.get(itemID);
+    }
     /**
      *
      * @param itemStrCustomID String Item's Id
@@ -151,18 +156,5 @@ public final class CustomItemManager{
             }
         }
     }
-    //public static byte[] convertObjectToBytes(Object obj) {
-       // ByteArrayOutputStream boas = new ByteArrayOutputStream();
-       // try (ObjectOutputStream ois = new ObjectOutputStream(boas)) {
-       //     ois.writeObject(obj);
-       //     return boas.toByteArray();
-      //  } catch (IOException ioe) {
-       //     ioe.printStackTrace();
-      //  }
-     //  throw new RuntimeException();
-   // }
-
-
-
 }
 

@@ -2,6 +2,7 @@ package org.regicide.regicideitems;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.regicide.regicideitems.command.GiveItem;
 import org.regicide.regicideitems.entities.items.CustomItemManager;
 import org.regicide.regicideitems.entities.recipes.RecipeManager;
 
@@ -20,7 +21,9 @@ public final class RegicideItems extends JavaPlugin {
         RecipeManager.readShapedRecipes();
         RecipeManager.readShapelessRecipes();
         CustomItemManager.readCustomItems();
+        RecipeManager.readShapedRecipesToCustom();
         getLogger().info("All custom recipes was successfully loaded!");
+        getServer().getPluginCommand("giveitem").setExecutor(new GiveItem(this));
     }
 
     @Override

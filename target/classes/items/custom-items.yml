@@ -27,7 +27,6 @@ custom-items:
             data-key: 'Q'
             data-type: 'STRING'
             data-value: 'Аааа'
-
   ATM:
     type: STICK
     meta:

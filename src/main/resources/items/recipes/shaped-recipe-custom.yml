@@ -1,0 +1,15 @@
+shaped-recipe-custom:
+  ATM:
+    result:
+      item: ATM
+      amount: 1
+    shape:
+      shape-patterns:
+        - "aaa"
+        - "aba"
+        - "aaa"
+    keys:
+      a:
+        item: ANDESITE
+      b:
+        item: STICK

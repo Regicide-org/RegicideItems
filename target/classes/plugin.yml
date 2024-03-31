@@ -3,3 +3,7 @@ version: '1.0-SNAPSHOT'
 main: org.regicide.regicideitems.RegicideItems
 api-version: '1.20'
 authors: [ Pashaken, Theorenter ]
+commands:
+  giveitem:
+    description: Выдаёт предметы
+    usage: /<command> <player> <item>
